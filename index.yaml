@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  qcs-sensor:
+  - apiVersion: v2
+    appVersion: 1.19.0
+    created: "2022-11-22T18:05:03.264970228Z"
+    description: A Helm chart for Kubernetes
+    digest: 4eacc5ed67b4c0f2cf58e5bb45b19e3a374b5a7edab1ca8ca7fa7a5f8bf551db
+    name: qcs-sensor
+    type: application
+    urls:
+    - https://github.com/Qualys/Qualys-Helm-Charts/qcs-sensor-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-11-22T18:05:03.263455579Z"
