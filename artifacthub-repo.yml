@@ -1,0 +1,7 @@
+# Artifact Hub repository metadata file
+repositoryID: 0966e120-2052-4050-b60a-3c9aedc7eebb
+owners:
+  - name: Qualys DevOps Bar
+    email: devops-bar@qualys.com
+  - name: Qualys Support
+    email: support@qualys.com
