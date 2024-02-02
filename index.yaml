@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   qcs-sensor:
   - apiVersion: v2
+    appVersion: 1.31.0-0
+    created: "2024-02-02T07:12:41.136745195Z"
+    description: A Helm chart for Kubernetes
+    digest: b05f293f6c111523560144c8a4e9313ee052df0b600d01d706a6360209c5f43a
+    name: qcs-sensor
+    type: application
+    urls:
+    - https://qualys.github.io/Qualys-Helm-Charts/qcs-sensor-1.10.0.tgz
+    version: 1.10.0
+  - apiVersion: v2
     appVersion: 1.30.0-0
-    created: "2023-12-13T12:01:46.575040411Z"
+    created: "2024-02-02T07:12:41.143884356Z"
     description: A Helm chart for Kubernetes
     digest: 84b9ae9b6e1e9db7e5b1052734a8834c060ac7d6200018da0982d202f43128e9
     name: qcs-sensor
@@ -13,7 +23,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.29.0-0
-    created: "2023-12-13T12:01:46.573739761Z"
+    created: "2024-02-02T07:12:41.143067591Z"
     description: A Helm chart for Kubernetes
     digest: 3511cf34f8c1c97ed229674742c0882f97d82f18c0772ba94e514547c076a961
     name: qcs-sensor
@@ -23,7 +33,7 @@ entries:
     version: 1.8.0
   - apiVersion: v2
     appVersion: 1.28.0-0
-    created: "2023-12-13T12:01:46.572823956Z"
+    created: "2024-02-02T07:12:41.141877733Z"
     description: A Helm chart for Kubernetes
     digest: 720b55ced11cf2cbfd4f15676e19b1b59ba3dc520051c030d73844c2491ca17c
     name: qcs-sensor
@@ -33,7 +43,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: 1.27.0-0
-    created: "2023-12-13T12:01:46.571884497Z"
+    created: "2024-02-02T07:12:41.141038214Z"
     description: A Helm chart for Kubernetes
     digest: 3d8c390a0d1fd032dec33b9d0704b7952b1ed0284dc34d690d601ee732e00d46
     name: qcs-sensor
@@ -43,7 +53,7 @@ entries:
     version: 1.6.0
   - apiVersion: v2
     appVersion: 1.26.0-0
-    created: "2023-12-13T12:01:46.570972483Z"
+    created: "2024-02-02T07:12:41.140178756Z"
     description: A Helm chart for Kubernetes
     digest: 089c7b52f5f1e4465926f9ed892115e1d3279b1f36e4fe52248bc26d183a4281
     name: qcs-sensor
@@ -53,7 +63,7 @@ entries:
     version: 1.5.0
   - apiVersion: v2
     appVersion: 1.25.0-0
-    created: "2023-12-13T12:01:46.570008826Z"
+    created: "2024-02-02T07:12:41.139322365Z"
     description: A Helm chart for Kubernetes
     digest: 4c83c0c425b22e43432c981a78687f39d7942f8081893ed6e6be66fba08dc684
     name: qcs-sensor
@@ -63,7 +73,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: 1.24.0-1
-    created: "2023-12-13T12:01:46.568967598Z"
+    created: "2024-02-02T07:12:41.13844174Z"
     description: A Helm chart for Kubernetes
     digest: bee2a11ae0eb7da36aa533736e37be0bce52f25bc164357ed2c6de8248b46e6e
     name: qcs-sensor
@@ -73,7 +83,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.22.0-0
-    created: "2023-12-13T12:01:46.568039083Z"
+    created: "2024-02-02T07:12:41.137567127Z"
     description: A Helm chart for Kubernetes
     digest: c9e41f513ba0861415f3d5a8e87eefc0bd1a754e2636450f4fcc24928ccc509f
     name: qcs-sensor
@@ -83,7 +93,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.21.0-0
-    created: "2023-12-13T12:01:46.567162107Z"
+    created: "2024-02-02T07:12:41.13585887Z"
     description: A Helm chart for Kubernetes
     digest: 6b1c8c918777be8cf7985ceba7b691a4e24769ef343ee844408ef3cc0f2fce3c
     name: qcs-sensor
@@ -93,7 +103,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.19.2-0
-    created: "2023-12-13T12:01:46.566277563Z"
+    created: "2024-02-02T07:12:41.135032474Z"
     description: A Helm chart for Kubernetes
     digest: ed55fb8391e54edcaec93fe4f6ba83016398adec34fd6e199a89df1a7160e4fd
     name: qcs-sensor
@@ -101,4 +111,4 @@ entries:
     urls:
     - https://qualys.github.io/Qualys-Helm-Charts/qcs-sensor-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-13T12:01:46.564823651Z"
+generated: "2024-02-02T07:12:41.133639374Z"
