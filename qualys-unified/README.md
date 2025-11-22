@@ -34,8 +34,8 @@ Create a `my-values.yaml` file with your Qualys credentials:
 global:
   customerId: "your-customer-id"           # Shared by all sensors
   activationId: "container-activation-id"  # For cluster/runtime/general sensors
+  qualysPod: "US2"                         # Auto-fills gatewayUrl and cmsqagPublicUrl
   cloudProvider: "AWS"                     # Shared by all sensors
-  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
     AWS:
       arn: "your-cluster-arn"
@@ -74,9 +74,8 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
 helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
   --set global.activationId=CONTAINER_SENSOR_ACTIVATION_ID \
+  --set global.qualysPod=US2 \
   --set global.cloudProvider=AWS \
-  --set global.gatewayUrl=https://gateway.qg2.apps.qualys.com \
-  --set global.cmsqagPublicUrl=https://cmsqagpublic.qg2.apps.qualys.com/ContainerSensor \
   --set global.clusterInfoArgs.AWS.arn="arn:aws:eks:region:account:cluster/name" \
   --set hostsensor.enabled=false \
   --set qualysTc.enabled=true \
@@ -90,8 +89,8 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
 # Example: Host Sensor only
 helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
+  --set global.qualysPod=US2 \
   --set global.cloudProvider=AWS \
-  --set global.gatewayUrl=https://gateway.qg2.apps.qualys.com \
   --set hostsensor.enabled=true \
   --set hostsensor.qualys.args.activationId=HOST_SENSOR_ACTIVATION_ID \
   --set qualysTc.enabled=false \
@@ -101,9 +100,8 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
 helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
   --set global.activationId=CONTAINER_SENSOR_ACTIVATION_ID \
+  --set global.qualysPod=US2 \
   --set global.cloudProvider=AWS \
-  --set global.gatewayUrl=https://gateway.qg2.apps.qualys.com \
-  --set global.cmsqagPublicUrl=https://cmsqagpublic.qg2.apps.qualys.com/ContainerSensor \
   --set global.clusterInfoArgs.AWS.arn="arn:aws:eks:region:account:cluster/name" \
   --set hostsensor.enabled=true \
   --set hostsensor.qualys.args.activationId=HOST_SENSOR_ACTIVATION_ID \
@@ -137,18 +135,41 @@ Global settings apply to cluster sensor, runtime sensor, general sensor, and adm
 |-----------|-------------|----------|
 | `global.customerId` | Qualys Customer ID (shared by all sensors) | Yes |
 | `global.activationId` | Activation ID for cluster/runtime/general sensors | Yes (for container sensors) |
+| `global.qualysPod` | Qualys Platform Pod (e.g., "US2", "EU1") - Auto-fills URLs | **Recommended** |
 | `global.cloudProvider` | Cloud provider (AWS/AZURE/GCP/OCI/SELF_MANAGED_K8S) | Yes |
-| `global.gatewayUrl` | Qualys Gateway URL | Yes |
+| `global.gatewayUrl` | Qualys Gateway URL (auto-filled if qualysPod is set) | Optional if qualysPod set |
+| `global.cmsqagPublicUrl` | Container Security URL (auto-filled if qualysPod is set) | Optional if qualysPod set |
 
-### Gateway URLs by Platform
+### Qualys Platform Pod Identifier (Recommended)
 
-| Platform | URL |
-|----------|-----|
-| US Platform 1 | https://gateway.qg1.apps.qualys.com |
-| US Platform 2 | https://gateway.qg2.apps.qualys.com |
-| US Platform 3 | https://gateway.qg3.apps.qualys.com |
-| EU Platform 1 | https://gateway.qg1.apps.qualys.eu |
-| EU Platform 2 | https://gateway.qg2.apps.qualys.eu |
+Instead of manually specifying `gatewayUrl` and `cmsqagPublicUrl`, you can simply set `global.qualysPod` to your Qualys platform identifier. The chart will automatically configure the correct URLs for you.
+
+**Supported Platform Identifiers:**
+
+| Pod ID | Gateway URL | Container Security URL |
+|--------|-------------|------------------------|
+| US1 | https://gateway.qg1.apps.qualys.com | https://cmsqagpublic.qg1.apps.qualys.com/ContainerSensor |
+| US2 | https://gateway.qg2.apps.qualys.com | https://cmsqagpublic.qg2.apps.qualys.com/ContainerSensor |
+| US3 | https://gateway.qg3.apps.qualys.com | https://cmsqagpublic.qg3.apps.qualys.com/ContainerSensor |
+| US4 | https://gateway.qg4.apps.qualys.com | https://cmsqagpublic.qg4.apps.qualys.com/ContainerSensor |
+| GOV1 | https://gateway.gov1.qualys.us | https://cmsqagpublic.gov1.qualys.us/ContainerSensor |
+| EU1 | https://gateway.qg1.apps.qualys.eu | https://cmsqagpublic.qg1.apps.qualys.eu/ContainerSensor |
+| EU2 | https://gateway.qg2.apps.qualys.eu | https://cmsqagpublic.qg2.apps.qualys.eu/ContainerSensor |
+| EU3 | https://gateway.qg3.apps.qualys.it | https://cmsqagpublic.qg3.apps.qualys.it/ContainerSensor |
+| IN1 | https://gateway.qg1.apps.qualys.in | https://cmsqagpublic.qg1.apps.qualys.in/ContainerSensor |
+| CA1 | https://gateway.qg1.apps.qualys.ca | https://cmsqagpublic.qg1.apps.qualys.ca/ContainerSensor |
+| AE1 | https://gateway.qg1.apps.qualys.ae | https://cmsqagpublic.qg1.apps.qualys.ae/ContainerSensor |
+| UK1 | https://gateway.qg1.apps.qualys.co.uk | https://cmsqagpublic.qg1.apps.qualys.co.uk/ContainerSensor |
+| AU1 | https://gateway.qg1.apps.qualys.com.au | https://cmsqagpublic.qg1.apps.qualys.com.au/ContainerSensor |
+| KSA1 | https://gateway.qg1.apps.qualysksa.com | https://cmsqagpublic.qg1.apps.qualysksa.com/ContainerSensor |
+
+**Example:**
+```yaml
+global:
+  qualysPod: "US2"  # Automatically sets both gateway and CMS URLs
+```
+
+Not sure which platform you're on? Visit: https://www.qualys.com/platform-identification/
 
 ### Host Sensor
 
@@ -336,8 +357,8 @@ Deploy all sensors for comprehensive coverage:
 global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
+  qualysPod: "US2"  # Auto-fills gatewayUrl and cmsqagPublicUrl
   cloudProvider: "AWS"
-  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
     AWS:
       arn: "arn:aws:eks:us-east-1:123456789:cluster/prod-cluster"
@@ -368,8 +389,8 @@ Deploy only the host sensor:
 ```yaml
 global:
   customerId: "ABC12345"
+  qualysPod: "EU1"  # Auto-fills gatewayUrl and cmsqagPublicUrl
   cloudProvider: "GCP"
-  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
 
 hostsensor:
   enabled: true
@@ -390,8 +411,8 @@ Deploy cluster and general sensors for image vulnerability scanning:
 global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
+  qualysPod: "EU1"  # Auto-fills gatewayUrl and cmsqagPublicUrl
   cloudProvider: "GCP"
-  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
     GCP:
       krn: "krn:qgcp:my-project:us-central1:my-cluster"
@@ -418,8 +439,8 @@ Focus on runtime security monitoring:
 global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
+  qualysPod: "US2"  # Auto-fills gatewayUrl and cmsqagPublicUrl
   cloudProvider: "AZURE"
-  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
     AZURE:
       id: "cluster-resource-id"

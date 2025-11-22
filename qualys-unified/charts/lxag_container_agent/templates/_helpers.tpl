@@ -115,5 +115,10 @@ Get customer ID (with inheritance from global)
 Get server URI (with inheritance from global)
 */}}
 {{- define "lxagent.serverUri" -}}
-{{- .Values.qualys.args.serverUri | default .Values.global.gatewayUrl -}}
+{{- $override := .Values.qualys.args.serverUri | default "" -}}
+{{- if and $override (ne $override "") -}}
+  {{- $override -}}
+{{- else -}}
+  {{- include "qualys-unified.gatewayUrl" . -}}
+{{- end -}}
 {{- end -}}

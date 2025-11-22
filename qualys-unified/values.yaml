@@ -12,22 +12,33 @@ global:
   # Activation IDs (different for different sensor types)
   activationId: ""         # REQUIRED: For cluster/runtime/general/admission sensors
 
+  # Qualys Platform Pod Identifier (RECOMMENDED - auto-fills gatewayUrl and cmsqagPublicUrl)
+  # Specify your Qualys platform instead of manually entering URLs
+  # Valid values: US1, US2, US3, US4, GOV1, EU1, EU2, EU3, IN1, CA1, AE1, UK1, AU1, KSA1
+  # Example: "US2" automatically sets:
+  #   - gatewayUrl: https://gateway.qg2.apps.qualys.com
+  #   - cmsqagPublicUrl: https://cmsqagpublic.qg2.apps.qualys.com/ContainerSensor
+  # See: https://www.qualys.com/platform-identification/
+  qualysPod: ""            # RECOMMENDED: e.g., "US2", "EU1", "GOV1"
+
   # Cloud Provider (shared by all sensors in the same cluster)
   # Valid values: AWS, AZURE, GCP, OCI, SELF_MANAGED_K8S
   # For host sensor: Only AWS, GCP, COREOS are supported
   cloudProvider: ""        # REQUIRED: Used by all sensors
 
-  # Qualys gateway URL (required for cluster sensors)
+  # Qualys gateway URL (auto-filled if qualysPod is set)
+  # Only specify this if you need to override the auto-selected URL
   # Examples:
   #   US Platform 1: https://gateway.qg1.apps.qualys.com
   #   US Platform 2: https://gateway.qg2.apps.qualys.com
   #   US Platform 3: https://gateway.qg3.apps.qualys.com
   #   EU Platform 1: https://gateway.qg1.apps.qualys.eu
   #   EU Platform 2: https://gateway.qg2.apps.qualys.eu
-  gatewayUrl: ""
+  gatewayUrl: ""           # Optional if qualysPod is set
 
-  # CMS QAG Public URL (for container sensors)
-  cmsqagPublicUrl: ""
+  # CMS QAG Public URL (auto-filled if qualysPod is set)
+  # Only specify this if you need to override the auto-selected URL
+  cmsqagPublicUrl: ""      # Optional if qualysPod is set
 
   # Image pull secret (if using private registry)
   imagePullSecret: ""
