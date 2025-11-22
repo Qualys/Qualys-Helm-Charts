@@ -1,6 +1,7 @@
-{{- if not (has .Values.qualys.args.providerName (list "AWS" "GCP" "COREOS")) }}
-{{- fail "Invalid providerName. Supported values are: AWS, GCP, COREOS." }}
-{{- end }}
+{{- $providerName := include "lxagent.providerName" . }}
+{{- $imageRepo := include "lxagent.imageRepository" . }}
+{{- $customerId := include "lxagent.customerId" . }}
+{{- $serverUri := include "lxagent.serverUri" . }}
 kind: List
 apiVersion: v1
 items:
@@ -37,12 +38,12 @@ items:
           hostNetwork: {{.Values.qualys.hostNetwork}}
           hostPID: {{.Values.qualys.hostPID}}
           hostIPC: {{.Values.qualys.hostIPC}}
-          {{- if eq .Values.qualys.args.providerName "COREOS" }}
+          {{- if eq $providerName "COREOS" }}
           serviceAccount: qualys-agent-sa
           {{- end }}
           containers:
             - name: qualys-cloud-agent-container
-              image: {{ .Values.qualys.image.repository }}:{{ .Values.qualys.image.tag }}
+              image: {{ $imageRepo }}:{{ .Values.qualys.image.tag }}
               imagePullPolicy: {{.Values.qualys.image.imagePullPolicy}}
               resources:
                 limits:
@@ -53,12 +54,12 @@ items:
               #       value: <proxy FQDN or Ip address>:<port#>
               args:
                 - "--activation-id={{ .Values.qualys.args.activationId }}"
-                - "--customer-id={{ .Values.qualys.args.customerId }}"
+                - "--customer-id={{ $customerId }}"
                 - "--provider-name=AUTO"
                 - "--log-level={{ .Values.qualys.args.logLevel }}"
-                - "--server-uri={{ .Values.qualys.args.serverUri }}"
+                - "--server-uri={{ $serverUri }}"
               volumeMounts:
-                {{- if eq .Values.qualys.args.providerName "GCP" }}
+                {{- if eq $providerName "GCP" }}
                 - mountPath: /host_root
                   name: lxag-root
                 - mountPath: /usr/local/qualys/cloud-agent/data
@@ -67,7 +68,7 @@ items:
                   name: lxag-config
                 - mountPath: /var/log/qualys
                   name: lxag-log
-                {{- else if eq .Values.qualys.args.providerName "AWS" }}
+                {{- else if eq $providerName "AWS" }}
                 - mountPath: /host_root
                   name: root-host-path
                 - mountPath: /usr/local/qualys/cloud-agent/data
@@ -76,7 +77,7 @@ items:
                   name: config-host-path
                 - mountPath: /var/log/qualys
                   name: log-host-path
-                {{- else if eq .Values.qualys.args.providerName "COREOS" }}
+                {{- else if eq $providerName "COREOS" }}
                 - mountPath: /host_root
                   name: root-host-path
                 - mountPath: /usr/local/qualys/cloud-agent/data
@@ -97,7 +98,7 @@ items:
               # uncomment(and indent properly) below section if proxy(with CA cert) required to connect Qualys Cloud
               #                - mountPath: /etc/qualys/cloud-agent/cert/custom-ca.crt
               #                  name: proxy-cert-host-path
-              {{- if or (eq .Values.qualys.args.providerName "AWS") (eq .Values.qualys.args.providerName "GCP") }}
+              {{- if or (eq $providerName "AWS") (eq $providerName "GCP") }}
               securityContext:
                 capabilities:
                   add:
@@ -116,7 +117,7 @@ items:
               {{- end }}
 
           volumes:
-             {{- if eq .Values.qualys.args.providerName "GCP" }}
+             {{- if eq $providerName "GCP" }}
              - hostPath:
                  path: /
                  type: Directory

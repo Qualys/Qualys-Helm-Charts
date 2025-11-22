@@ -1,4 +1,5 @@
-{{- if eq .Values.qualys.args.providerName "COREOS" }}
+{{- $providerName := include "lxagent.providerName" . }}
+{{- if eq $providerName "COREOS" }}
 # RoleBinding 'qualys-agent-rolebinding' to bind Role 'qualys-agent-role' to Service Account 'qualys-agent-sa'
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

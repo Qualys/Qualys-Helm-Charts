@@ -58,28 +58,21 @@
           "type": "object",
           "properties": {
             "activationId": {
-              "type": "string",
-              "minLength": 1
+              "type": ["string", "null"]
             },
             "customerId": {
-              "type": "string",
-              "minLength": 1
+              "type": ["string", "null"]
             },
             "providerName": {
-              "type": "string",
-              "enum": ["AWS", "GCP", "COREOS"],
-              "errorMessage": "Invalid providerName. Supported values are: AWS, GCP, COREOS.",
-              "minLength": 1
+              "type": ["string", "null"]
             },
             "logLevel": {
               "type": ["string", "null"]
             },
             "serverUri": {
-              "type": "string",
-              "format": "uri"
+              "type": ["string", "null"]
             }
-          },
-          "required": ["activationId", "customerId", "providerName", "serverUri"]
+          }
         },
         "hostNetwork": { "type": "boolean" },
         "hostIPC": { "type": "boolean" },

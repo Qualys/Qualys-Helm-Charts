@@ -2,7 +2,7 @@ apiVersion: v2
 name: qualys-unified
 description: A unified Helm chart to deploy Qualys sensors - Host Sensor, Cluster Sensor, Runtime Sensor, and General Sensor
 type: application
-version: 1.1.2
+version: 1.1.3
 appVersion: "1.0"
 
 dependencies:

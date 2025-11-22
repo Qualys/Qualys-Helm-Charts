@@ -1,4 +1,5 @@
-{{- if eq .Values.qualys.args.providerName "COREOS" }}
+{{- $providerName := include "lxagent.providerName" . }}
+{{- if eq $providerName "COREOS" }}
 # Role 'qualys-agent-role' for permission to Namespace 'qualys-agent'
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role

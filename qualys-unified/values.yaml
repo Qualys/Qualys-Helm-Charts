@@ -73,7 +73,13 @@ global:
 # HOST SENSOR (Linux Agent for Containers)
 # =============================================================================
 # This sensor runs on host nodes and scans containers/images
-# Requires cloud provider specification: AWS, GCP, or COREOS
+#
+# IMPORTANT: Host sensor image is automatically selected based on cloud provider:
+# - OpenShift (global.openshift=true) → qualys/qagent-rhcos (COREOS)
+# - AWS → qualys/qagent_bottlerocket
+# - GCP → qualys/qagent_googlecos
+# - Other providers (Azure, OCI, SELF_MANAGED_K8S non-OpenShift) → NOT SUPPORTED
+#
 hostsensor:
   enabled: false
   openshift: false  # Inherits from global.openshift if not specified
@@ -81,8 +87,10 @@ hostsensor:
   qualys:
     namespace: "qualys"
 
+    # Image is automatically selected based on global.cloudProvider and global.openshift
+    # Override only if you need a specific image/tag
     image:
-      repository: "qualys/qca"
+      repository: ""  # Auto-selected: qualys/qagent-rhcos, qualys/qagent_bottlerocket, or qualys/qagent_googlecos
       tag: "latest"
       pullPolicy: "Always"
 
@@ -95,10 +103,10 @@ hostsensor:
       # Separate activation ID is REQUIRED for host sensor
       activationId: ""  # REQUIRED: Host sensor-specific activation ID
 
-      # Optional overrides (inherit from global if not specified)
-      customerId: ""    # Inherits from global.customerId if not set
-      providerName: ""  # Inherits from global.cloudProvider if not set (converted to AWS/GCP/COREOS)
-      serverUri: ""     # Inherits from global.gatewayUrl if not set
+      # Optional overrides (auto-inherit if not specified)
+      customerId: ""    # Inherits from global.customerId
+      providerName: ""  # Auto-derived from global.cloudProvider/global.openshift (AWS/GCP/COREOS)
+      serverUri: ""     # Inherits from global.gatewayUrl
 
       # Log level (1-5, default: 1)
       logLevel: "3"

@@ -154,10 +154,23 @@ Global settings apply to cluster sensor, runtime sensor, general sensor, and adm
 
 Deploy the Linux Agent for containers to scan host nodes. **Note: Requires separate activation ID.**
 
+#### Automatic Image Selection
+
+The host sensor Docker image is **automatically selected** based on your cloud provider:
+
+| Cloud Provider Setting | Detected Provider | Docker Image Used |
+|------------------------|-------------------|-------------------|
+| `global.cloudProvider: "AWS"` | AWS | `qualys/qagent_bottlerocket` |
+| `global.cloudProvider: "GCP"` | GCP | `qualys/qagent_googlecos` |
+| `global.openshift: true` | COREOS | `qualys/qagent-rhcos` |
+
+You don't need to specify the image repository - it's selected automatically!
+
 ```yaml
 global:
   customerId: "your-customer-id"  # Shared
-  cloudProvider: "AWS"            # Shared
+  cloudProvider: "AWS"            # Shared - automatically selects qagent_bottlerocket
+  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
 
 hostsensor:
   enabled: true
@@ -165,21 +178,39 @@ hostsensor:
     args:
       activationId: "HOST_SENSOR_ACTIVATION_ID"  # Different from global.activationId
       logLevel: "3"
-    image:
-      repository: "qualys/qca"
-      tag: "latest"
+    # image.repository is auto-selected based on cloudProvider
+    # Override only if you need a specific image:
+    # image:
+    #   repository: "qualys/custom-image"
+    #   tag: "latest"
+```
+
+**For OpenShift:**
+```yaml
+global:
+  customerId: "your-customer-id"
+  cloudProvider: "AWS"  # Or any provider, openshift flag determines image
+  openshift: true       # Automatically selects qualys/qagent-rhcos
+  gatewayUrl: "https://gateway.qg1.apps.qualys.com"
+
+hostsensor:
+  enabled: true
+  qualys:
+    args:
+      activationId: "HOST_SENSOR_ACTIVATION_ID"
 ```
 
 **Supported Cloud Providers for Host Sensor:**
-- `AWS` - Amazon Web Services
-- `GCP` - Google Cloud Platform
-- `COREOS` - CoreOS/Bottlerocket
+- `AWS` - Amazon Web Services → `qualys/qagent_bottlerocket`
+- `GCP` - Google Cloud Platform → `qualys/qagent_googlecos`
+- OpenShift (`global.openshift: true`) → `qualys/qagent-rhcos`
 
-**Note:** Azure, OCI, and SELF_MANAGED_K8S are supported for cluster sensors but not for host sensor.
+**Note:** Azure, OCI, and SELF_MANAGED_K8S are supported for cluster sensors but NOT for host sensor. If you enable hostsensor with these providers, deployment will fail with a clear error message.
 
 **Value Inheritance:**
 - `customerId`: Inherits from `global.customerId`
-- `providerName`: Inherits from `global.cloudProvider` (automatically converts to AWS/GCP/COREOS)
+- `image.repository`: Automatically selected from `global.cloudProvider` or `global.openshift`
+- `providerName`: Auto-derived from `global.cloudProvider` or `global.openshift` (AWS/GCP/COREOS)
 - `serverUri`: Inherits from `global.gatewayUrl`
 - `activationId`: Must be explicitly set (different from cluster sensors)
 
@@ -238,8 +269,8 @@ qualysTc:
 
 ```yaml
 global:
+  cloudProvider: "AWS"
   clusterInfoArgs:
-    cloudProvider: "AWS"
     AWS:
       arn: "arn:aws:eks:region:account-id:cluster/cluster-name"
 
@@ -247,15 +278,16 @@ hostsensor:
   enabled: true
   qualys:
     args:
-      providerName: "AWS"
+      activationId: "host-activation-id"
+  # Image automatically selected: qualys/qagent_bottlerocket
 ```
 
 ### Azure
 
 ```yaml
 global:
+  cloudProvider: "AZURE"
   clusterInfoArgs:
-    cloudProvider: "AZURE"
     AZURE:
       id: "your-cluster-id"
       region: "eastus"
@@ -268,8 +300,8 @@ hostsensor:
 
 ```yaml
 global:
+  cloudProvider: "GCP"
   clusterInfoArgs:
-    cloudProvider: "GCP"
     GCP:
       krn: "krn:qgcp:project-id:region:cluster-name"
 
@@ -277,20 +309,21 @@ hostsensor:
   enabled: true
   qualys:
     args:
-      providerName: "GCP"
+      activationId: "host-activation-id"
+  # Image automatically selected: qualys/qagent_googlecos
 ```
 
 ### Self-Managed Kubernetes
 
 ```yaml
 global:
+  cloudProvider: "SELF_MANAGED_K8S"
   clusterInfoArgs:
-    cloudProvider: "SELF_MANAGED_K8S"
     SELF_MANAGED_K8S:
       clusterName: "my-cluster"
 
 hostsensor:
-  enabled: false  # Not applicable for self-managed
+  enabled: false  # Not supported for SELF_MANAGED_K8S
 ```
 
 ## Deployment Scenarios
@@ -302,10 +335,10 @@ Deploy all sensors for comprehensive coverage:
 ```yaml
 global:
   customerId: "ABC12345"
-  activationId: "xyz-789"
+  activationId: "container-sensor-activation"
+  cloudProvider: "AWS"
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
-    cloudProvider: "AWS"
     AWS:
       arn: "arn:aws:eks:us-east-1:123456789:cluster/prod-cluster"
 
@@ -313,7 +346,8 @@ hostsensor:
   enabled: true
   qualys:
     args:
-      providerName: "AWS"
+      activationId: "host-sensor-activation"
+  # Image: qualys/qagent_bottlerocket (auto-selected)
 
 qualysTc:
   enabled: true
@@ -334,14 +368,15 @@ Deploy only the host sensor:
 ```yaml
 global:
   customerId: "ABC12345"
-  activationId: "xyz-789"
+  cloudProvider: "GCP"
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
 
 hostsensor:
   enabled: true
   qualys:
     args:
-      providerName: "GCP"
+      activationId: "host-sensor-activation"
+  # Image: qualys/qagent_googlecos (auto-selected)
 
 qualysTc:
   enabled: false
@@ -354,10 +389,10 @@ Deploy cluster and general sensors for image vulnerability scanning:
 ```yaml
 global:
   customerId: "ABC12345"
-  activationId: "xyz-789"
+  activationId: "container-sensor-activation"
+  cloudProvider: "GCP"
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
-    cloudProvider: "GCP"
     GCP:
       krn: "krn:qgcp:my-project:us-central1:my-cluster"
 
@@ -382,16 +417,16 @@ Focus on runtime security monitoring:
 ```yaml
 global:
   customerId: "ABC12345"
-  activationId: "xyz-789"
+  activationId: "container-sensor-activation"
+  cloudProvider: "AZURE"
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
   clusterInfoArgs:
-    cloudProvider: "AZURE"
     AZURE:
       id: "cluster-resource-id"
       region: "eastus"
 
 hostsensor:
-  enabled: false
+  enabled: false  # Azure not supported for host sensor
 
 qualysTc:
   enabled: true
