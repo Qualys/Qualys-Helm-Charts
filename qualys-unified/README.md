@@ -35,8 +35,8 @@ global:
   customerId: "your-customer-id"           # Shared by all sensors
   activationId: "container-activation-id"  # For cluster/runtime/general sensors
   qualysPod: "US2"                         # Auto-fills gatewayUrl and cmsqagPublicUrl
-  cloudProvider: "AWS"                     # Shared by all sensors
   clusterInfoArgs:
+    cloudProvider: "AWS"                   # Shared by all sensors
     AWS:
       arn: "your-cluster-arn"
 
@@ -75,7 +75,7 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
   --set global.activationId=CONTAINER_SENSOR_ACTIVATION_ID \
   --set global.qualysPod=US2 \
-  --set global.cloudProvider=AWS \
+  --set global.clusterInfoArgs.cloudProvider=AWS \
   --set global.clusterInfoArgs.AWS.arn="arn:aws:eks:region:account:cluster/name" \
   --set hostsensor.enabled=false \
   --set qualysTc.enabled=true \
@@ -90,7 +90,7 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
 helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
   --set global.qualysPod=US2 \
-  --set global.cloudProvider=AWS \
+  --set global.clusterInfoArgs.cloudProvider=AWS \
   --set hostsensor.enabled=true \
   --set hostsensor.qualys.args.activationId=HOST_SENSOR_ACTIVATION_ID \
   --set qualysTc.enabled=false \
@@ -101,7 +101,7 @@ helm install qualys-sensors qualys-helm-chart/qualys-unified \
   --set global.customerId=YOUR_CUSTOMER_ID \
   --set global.activationId=CONTAINER_SENSOR_ACTIVATION_ID \
   --set global.qualysPod=US2 \
-  --set global.cloudProvider=AWS \
+  --set global.clusterInfoArgs.cloudProvider=AWS \
   --set global.clusterInfoArgs.AWS.arn="arn:aws:eks:region:account:cluster/name" \
   --set hostsensor.enabled=true \
   --set hostsensor.qualys.args.activationId=HOST_SENSOR_ACTIVATION_ID \
@@ -136,7 +136,7 @@ Global settings apply to cluster sensor, runtime sensor, general sensor, and adm
 | `global.customerId` | Qualys Customer ID (shared by all sensors) | Yes |
 | `global.activationId` | Activation ID for cluster/runtime/general sensors | Yes (for container sensors) |
 | `global.qualysPod` | Qualys Platform Pod (e.g., "US2", "EU1") - Auto-fills URLs | **Recommended** |
-| `global.cloudProvider` | Cloud provider (AWS/AZURE/GCP/OCI/SELF_MANAGED_K8S) | Yes |
+| `global.clusterInfoArgs.cloudProvider` | Cloud provider (AWS/AZURE/GCP/OCI/SELF_MANAGED_K8S) | Yes |
 | `global.gatewayUrl` | Qualys Gateway URL (auto-filled if qualysPod is set) | Optional if qualysPod set |
 | `global.cmsqagPublicUrl` | Container Security URL (auto-filled if qualysPod is set) | Optional if qualysPod set |
 
@@ -181,17 +181,18 @@ The host sensor Docker image is **automatically selected** based on your cloud p
 
 | Cloud Provider Setting | Detected Provider | Docker Image Used |
 |------------------------|-------------------|-------------------|
-| `global.cloudProvider: "AWS"` | AWS | `qualys/qagent_bottlerocket` |
-| `global.cloudProvider: "GCP"` | GCP | `qualys/qagent_googlecos` |
+| `global.clusterInfoArgs.cloudProvider: "AWS"` | AWS | `qualys/qagent_bottlerocket` |
+| `global.clusterInfoArgs.cloudProvider: "GCP"` | GCP | `qualys/qagent_googlecos` |
 | `global.openshift: true` | COREOS | `qualys/qagent-rhcos` |
 
 You don't need to specify the image repository - it's selected automatically!
 
 ```yaml
 global:
-  customerId: "your-customer-id"  # Shared
-  cloudProvider: "AWS"            # Shared - automatically selects qagent_bottlerocket
+  customerId: "your-customer-id"
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
+  clusterInfoArgs:
+    cloudProvider: "AWS"           # Automatically selects qagent_bottlerocket
 
 hostsensor:
   enabled: true
@@ -210,9 +211,10 @@ hostsensor:
 ```yaml
 global:
   customerId: "your-customer-id"
-  cloudProvider: "AWS"  # Or any provider, openshift flag determines image
-  openshift: true       # Automatically selects qualys/qagent-rhcos
+  openshift: true                  # Automatically selects qualys/qagent-rhcos
   gatewayUrl: "https://gateway.qg1.apps.qualys.com"
+  clusterInfoArgs:
+    cloudProvider: "AWS"           # Or any provider, openshift flag determines image
 
 hostsensor:
   enabled: true
@@ -290,8 +292,8 @@ qualysTc:
 
 ```yaml
 global:
-  cloudProvider: "AWS"
   clusterInfoArgs:
+    cloudProvider: "AWS"
     AWS:
       arn: "arn:aws:eks:region:account-id:cluster/cluster-name"
 
@@ -307,8 +309,8 @@ hostsensor:
 
 ```yaml
 global:
-  cloudProvider: "AZURE"
   clusterInfoArgs:
+    cloudProvider: "AZURE"
     AZURE:
       id: "your-cluster-id"
       region: "eastus"
@@ -321,8 +323,8 @@ hostsensor:
 
 ```yaml
 global:
-  cloudProvider: "GCP"
   clusterInfoArgs:
+    cloudProvider: "GCP"
     GCP:
       krn: "krn:qgcp:project-id:region:cluster-name"
 
@@ -338,8 +340,8 @@ hostsensor:
 
 ```yaml
 global:
-  cloudProvider: "SELF_MANAGED_K8S"
   clusterInfoArgs:
+    cloudProvider: "SELF_MANAGED_K8S"
     SELF_MANAGED_K8S:
       clusterName: "my-cluster"
 
@@ -358,8 +360,8 @@ global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
   qualysPod: "US2"  # Auto-fills gatewayUrl and cmsqagPublicUrl
-  cloudProvider: "AWS"
   clusterInfoArgs:
+    cloudProvider: "AWS"
     AWS:
       arn: "arn:aws:eks:us-east-1:123456789:cluster/prod-cluster"
 
@@ -412,8 +414,8 @@ global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
   qualysPod: "EU1"  # Auto-fills gatewayUrl and cmsqagPublicUrl
-  cloudProvider: "GCP"
   clusterInfoArgs:
+    cloudProvider: "GCP"
     GCP:
       krn: "krn:qgcp:my-project:us-central1:my-cluster"
 
@@ -440,8 +442,8 @@ global:
   customerId: "ABC12345"
   activationId: "container-sensor-activation"
   qualysPod: "US2"  # Auto-fills gatewayUrl and cmsqagPublicUrl
-  cloudProvider: "AZURE"
   clusterInfoArgs:
+    cloudProvider: "AZURE"
     AZURE:
       id: "cluster-resource-id"
       region: "eastus"

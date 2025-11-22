@@ -53,7 +53,7 @@ Get host sensor provider name (derived from cloud provider)
 */}}
 {{- define "qualys-unified.hostsensorProviderName" -}}
 {{- $openshift := .Values.global.openshift | default false -}}
-{{- $cloudProvider := .Values.global.cloudProvider -}}
+{{- $cloudProvider := .Values.global.clusterInfoArgs.cloudProvider -}}
 {{- $override := .Values.hostsensor.qualys.args.providerName | default "" -}}
 {{- if and $override (ne $override "") -}}
   {{- $override -}}
@@ -196,10 +196,10 @@ Validate required values
   {{- if not .Values.hostsensor.qualys.args.activationId -}}
     {{- fail "hostsensor.qualys.args.activationId is required when hostsensor is enabled" -}}
   {{- end -}}
-  {{- if not .Values.global.cloudProvider -}}
-    {{- fail "global.cloudProvider is required when hostsensor is enabled" -}}
+  {{- if not .Values.global.clusterInfoArgs.cloudProvider -}}
+    {{- fail "global.clusterInfoArgs.cloudProvider is required when hostsensor is enabled" -}}
   {{- end -}}
-  {{- $cloudProvider := .Values.global.cloudProvider -}}
+  {{- $cloudProvider := .Values.global.clusterInfoArgs.cloudProvider -}}
   {{- $openshift := .Values.global.openshift | default false -}}
   {{- if and (not $openshift) (not (has $cloudProvider (list "AWS" "GCP"))) -}}
     {{- fail (printf "Host sensor is not supported for cloud provider '%s'. Supported: AWS, GCP, or OpenShift (set global.openshift=true)" $cloudProvider) -}}
@@ -210,8 +210,8 @@ Validate required values
   {{- if not .Values.global.activationId -}}
     {{- fail "global.activationId is required when qualysTc (cluster/runtime/general sensors) is enabled" -}}
   {{- end -}}
-  {{- if not .Values.global.cloudProvider -}}
-    {{- fail "global.cloudProvider is required when qualysTc is enabled" -}}
+  {{- if not .Values.global.clusterInfoArgs.cloudProvider -}}
+    {{- fail "global.clusterInfoArgs.cloudProvider is required when qualysTc is enabled" -}}
   {{- end -}}
 {{- end -}}
 {{- end -}}

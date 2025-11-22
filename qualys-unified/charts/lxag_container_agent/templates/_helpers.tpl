@@ -70,7 +70,7 @@ Get host sensor provider name (derived from cloud provider via global values)
   {{- $override -}}
 {{- else -}}
   {{- $openshift := .Values.global.openshift | default false -}}
-  {{- $cloudProvider := .Values.global.cloudProvider -}}
+  {{- $cloudProvider := .Values.global.clusterInfoArgs.cloudProvider -}}
   {{- if $openshift -}}
     COREOS
   {{- else if eq $cloudProvider "AWS" -}}

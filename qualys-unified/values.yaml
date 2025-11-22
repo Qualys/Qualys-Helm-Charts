@@ -21,11 +21,6 @@ global:
   # See: https://www.qualys.com/platform-identification/
   qualysPod: ""            # RECOMMENDED: e.g., "US2", "EU1", "GOV1"
 
-  # Cloud Provider (shared by all sensors in the same cluster)
-  # Valid values: AWS, AZURE, GCP, OCI, SELF_MANAGED_K8S
-  # For host sensor: Only AWS, GCP, COREOS are supported
-  cloudProvider: ""        # REQUIRED: Used by all sensors
-
   # Qualys gateway URL (auto-filled if qualysPod is set)
   # Only specify this if you need to override the auto-selected URL
   # Examples:
@@ -45,6 +40,11 @@ global:
 
   # Cluster identification arguments (cloud-specific)
   clusterInfoArgs:
+    # Cloud Provider (shared by all sensors in the same cluster)
+    # Valid values: AWS, AZURE, GCP, OCI, SELF_MANAGED_K8S
+    # For host sensor: Only AWS, GCP are supported (or use openshift: true for COREOS)
+    cloudProvider: ""      # REQUIRED: Used by all sensors
+
     AWS:
       arn: ""
 
