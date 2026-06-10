@@ -3,7 +3,7 @@ entries:
   lxag_container_agent:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-04-17T10:03:34.577087777Z"
+    created: "2026-06-10T10:38:24.751407416Z"
     description: A Helm chart for Kubernetes
     digest: b303474e0fb4e88a20bdc6d1aa045ad5c7078e26995b4a646307d4b4d58f8ee9
     name: lxag_container_agent
@@ -14,7 +14,7 @@ entries:
   qcs-sensor:
   - apiVersion: v2
     appVersion: 1.42.1-0
-    created: "2026-04-17T10:03:34.605056794Z"
+    created: "2026-06-10T10:38:24.784528911Z"
     description: A Helm chart for Kubernetes
     digest: c6a42f43cae204bb0f8f156cb6275a16f2d75d7f30c19ed658661d81af0c94df
     name: qcs-sensor
@@ -24,7 +24,7 @@ entries:
     version: 1.21.0
   - apiVersion: v2
     appVersion: 1.41.2-0
-    created: "2026-04-17T10:03:34.60393617Z"
+    created: "2026-06-10T10:38:24.782939844Z"
     description: A Helm chart for Kubernetes
     digest: 2ad9d1aa218739ae909c48e2fe6cd25ae6369e86d165480bee9f3fb034ebbced
     name: qcs-sensor
@@ -34,7 +34,7 @@ entries:
     version: 1.20.1
   - apiVersion: v2
     appVersion: 1.41.0-0
-    created: "2026-04-17T10:03:34.601759066Z"
+    created: "2026-06-10T10:38:24.781497534Z"
     description: A Helm chart for Kubernetes
     digest: db821e5e386b63158b7cee02f8a374912ba7a7df4bf02160f8bb10804ab7700e
     name: qcs-sensor
@@ -44,7 +44,7 @@ entries:
     version: 1.20.0
   - apiVersion: v2
     appVersion: 1.40.1-0
-    created: "2026-04-17T10:03:34.599661123Z"
+    created: "2026-06-10T10:38:24.778363348Z"
     description: A Helm chart for Kubernetes
     digest: 1b23493f22c5493ca6a967a81a3d34923be73a897eb5be6d1c09956a612dd432
     name: qcs-sensor
@@ -54,7 +54,7 @@ entries:
     version: 1.19.0
   - apiVersion: v2
     appVersion: 1.39.0-1
-    created: "2026-04-17T10:03:34.598496626Z"
+    created: "2026-06-10T10:38:24.77689731Z"
     description: A Helm chart for Kubernetes
     digest: 4467b383e13c0d1bd7eb72fc94dd41f13aba447042c8e26626e44504533542b7
     name: qcs-sensor
@@ -64,7 +64,7 @@ entries:
     version: 1.18.1
   - apiVersion: v2
     appVersion: 1.39.0-1
-    created: "2026-04-17T10:03:34.597340545Z"
+    created: "2026-06-10T10:38:24.775579656Z"
     description: A Helm chart for Kubernetes
     digest: 6379cfd51b2fa5eb550278950bdea48ae3dc3840864d17c156b9b93eb10a50c9
     name: qcs-sensor
@@ -74,7 +74,7 @@ entries:
     version: 1.18.0
   - apiVersion: v2
     appVersion: 1.38.0-1
-    created: "2026-04-17T10:03:34.596032466Z"
+    created: "2026-06-10T10:38:24.774299846Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -88,7 +88,7 @@ entries:
     version: 1.17.0
   - apiVersion: v2
     appVersion: 1.37.0-0
-    created: "2026-04-17T10:03:34.594841357Z"
+    created: "2026-06-10T10:38:24.772720862Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -102,7 +102,7 @@ entries:
     version: 1.16.0
   - apiVersion: v2
     appVersion: 1.36.1-0
-    created: "2026-04-17T10:03:34.593665261Z"
+    created: "2026-06-10T10:38:24.770959904Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -116,7 +116,7 @@ entries:
     version: 1.15.1
   - apiVersion: v2
     appVersion: 1.36.1-0
-    created: "2026-04-17T10:03:34.592491285Z"
+    created: "2026-06-10T10:38:24.769461044Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -130,7 +130,7 @@ entries:
     version: 1.15.0
   - apiVersion: v2
     appVersion: 1.35.0-0
-    created: "2026-04-17T10:03:34.591351284Z"
+    created: "2026-06-10T10:38:24.767917129Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -144,7 +144,7 @@ entries:
     version: 1.14.0
   - apiVersion: v2
     appVersion: 1.34.3-0
-    created: "2026-04-17T10:03:34.590195549Z"
+    created: "2026-06-10T10:38:24.765970126Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -158,7 +158,7 @@ entries:
     version: 1.13.2
   - apiVersion: v2
     appVersion: 1.34.1-1
-    created: "2026-04-17T10:03:34.589103703Z"
+    created: "2026-06-10T10:38:24.764510588Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -172,7 +172,7 @@ entries:
     version: 1.13.1
   - apiVersion: v2
     appVersion: 1.34.1-0
-    created: "2026-04-17T10:03:34.587283918Z"
+    created: "2026-06-10T10:38:24.76277491Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -186,7 +186,7 @@ entries:
     version: 1.13.0
   - apiVersion: v2
     appVersion: 1.33.2-0
-    created: "2026-04-17T10:03:34.586182799Z"
+    created: "2026-06-10T10:38:24.7612057Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -200,7 +200,7 @@ entries:
     version: 1.12.2
   - apiVersion: v2
     appVersion: 1.33.0-0
-    created: "2026-04-17T10:03:34.585099151Z"
+    created: "2026-06-10T10:38:24.76013927Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -214,7 +214,7 @@ entries:
     version: 1.12.1
   - apiVersion: v2
     appVersion: 1.33.0-0
-    created: "2026-04-17T10:03:34.583649201Z"
+    created: "2026-06-10T10:38:24.758869881Z"
     dependencies:
     - name: common
       repository: file://../common
@@ -228,7 +228,7 @@ entries:
     version: 1.12.0
   - apiVersion: v2
     appVersion: 1.32.2-0
-    created: "2026-04-17T10:03:34.58254382Z"
+    created: "2026-06-10T10:38:24.757260441Z"
     description: A Helm chart for Kubernetes
     digest: c65398a25af47369b5174a885e9240676f5740a33a70f9b10c7e839773518b02
     name: qcs-sensor
@@ -238,7 +238,7 @@ entries:
     version: 1.11.1
   - apiVersion: v2
     appVersion: 1.32.0-0
-    created: "2026-04-17T10:03:34.581660743Z"
+    created: "2026-06-10T10:38:24.756335317Z"
     description: A Helm chart for Kubernetes
     digest: 82f6e7c8ecd90109f42aa1074bb5c7bff4a23098df00f70a59e6e61c94fc0740
     name: qcs-sensor
@@ -248,7 +248,7 @@ entries:
     version: 1.11.0
   - apiVersion: v2
     appVersion: 1.31.2-0
-    created: "2026-04-17T10:03:34.580784061Z"
+    created: "2026-06-10T10:38:24.7553863Z"
     description: A Helm chart for Kubernetes
     digest: 1b542747630d5b6baa4e9b468f3501fc205ac3e57693219047ff66ad84c51fdc
     name: qcs-sensor
@@ -258,7 +258,7 @@ entries:
     version: 1.10.1
   - apiVersion: v2
     appVersion: 1.31.0-0
-    created: "2026-04-17T10:03:34.579919762Z"
+    created: "2026-06-10T10:38:24.754457799Z"
     description: A Helm chart for Kubernetes
     digest: b05f293f6c111523560144c8a4e9313ee052df0b600d01d706a6360209c5f43a
     name: qcs-sensor
@@ -268,7 +268,7 @@ entries:
     version: 1.10.0
   - apiVersion: v2
     appVersion: 1.30.0-0
-    created: "2026-04-17T10:03:34.610751891Z"
+    created: "2026-06-10T10:38:24.792414034Z"
     description: A Helm chart for Kubernetes
     digest: 84b9ae9b6e1e9db7e5b1052734a8834c060ac7d6200018da0982d202f43128e9
     name: qcs-sensor
@@ -278,7 +278,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.29.0-0
-    created: "2026-04-17T10:03:34.609948646Z"
+    created: "2026-06-10T10:38:24.79151894Z"
     description: A Helm chart for Kubernetes
     digest: 3511cf34f8c1c97ed229674742c0882f97d82f18c0772ba94e514547c076a961
     name: qcs-sensor
@@ -288,7 +288,7 @@ entries:
     version: 1.8.0
   - apiVersion: v2
     appVersion: 1.28.0-0
-    created: "2026-04-17T10:03:34.609152766Z"
+    created: "2026-06-10T10:38:24.790613474Z"
     description: A Helm chart for Kubernetes
     digest: 720b55ced11cf2cbfd4f15676e19b1b59ba3dc520051c030d73844c2491ca17c
     name: qcs-sensor
@@ -298,7 +298,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: 1.27.0-0
-    created: "2026-04-17T10:03:34.608330521Z"
+    created: "2026-06-10T10:38:24.789444693Z"
     description: A Helm chart for Kubernetes
     digest: 3d8c390a0d1fd032dec33b9d0704b7952b1ed0284dc34d690d601ee732e00d46
     name: qcs-sensor
@@ -308,7 +308,7 @@ entries:
     version: 1.6.0
   - apiVersion: v2
     appVersion: 1.26.0-0
-    created: "2026-04-17T10:03:34.607569878Z"
+    created: "2026-06-10T10:38:24.788172742Z"
     description: A Helm chart for Kubernetes
     digest: 089c7b52f5f1e4465926f9ed892115e1d3279b1f36e4fe52248bc26d183a4281
     name: qcs-sensor
@@ -318,7 +318,7 @@ entries:
     version: 1.5.0
   - apiVersion: v2
     appVersion: 1.25.0-0
-    created: "2026-04-17T10:03:34.606813057Z"
+    created: "2026-06-10T10:38:24.786984598Z"
     description: A Helm chart for Kubernetes
     digest: 4c83c0c425b22e43432c981a78687f39d7942f8081893ed6e6be66fba08dc684
     name: qcs-sensor
@@ -328,7 +328,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: 1.24.0-1
-    created: "2026-04-17T10:03:34.605977789Z"
+    created: "2026-06-10T10:38:24.785826626Z"
     description: A Helm chart for Kubernetes
     digest: bee2a11ae0eb7da36aa533736e37be0bce52f25bc164357ed2c6de8248b46e6e
     name: qcs-sensor
@@ -338,7 +338,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.22.0-0
-    created: "2026-04-17T10:03:34.600463961Z"
+    created: "2026-06-10T10:38:24.779193425Z"
     description: A Helm chart for Kubernetes
     digest: c9e41f513ba0861415f3d5a8e87eefc0bd1a754e2636450f4fcc24928ccc509f
     name: qcs-sensor
@@ -348,7 +348,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.21.0-0
-    created: "2026-04-17T10:03:34.579031118Z"
+    created: "2026-06-10T10:38:24.753501502Z"
     description: A Helm chart for Kubernetes
     digest: 6b1c8c918777be8cf7985ceba7b691a4e24769ef343ee844408ef3cc0f2fce3c
     name: qcs-sensor
@@ -358,7 +358,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.19.2-0
-    created: "2026-04-17T10:03:34.578202589Z"
+    created: "2026-06-10T10:38:24.752580248Z"
     description: A Helm chart for Kubernetes
     digest: ed55fb8391e54edcaec93fe4f6ba83016398adec34fd6e199a89df1a7160e4fd
     name: qcs-sensor
@@ -368,8 +368,22 @@ entries:
     version: 1.0.0
   qualys-scanner:
   - apiVersion: v1
+    appVersion: 5.0.0-3
+    created: "2026-06-10T10:38:24.798141349Z"
+    description: Harbor scanner adapter for QScanner
+    digest: be21d6fca9237a2ed8754c7f4e50367d56d31eca39d8c30bf946d630536b80a1
+    keywords:
+    - scanner
+    - harbor
+    - qscanner
+    - vulnerability
+    name: qualys-scanner
+    urls:
+    - https://qualys.github.io/Qualys-Helm-Charts/qualys-scanner-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v1
     appVersion: 4.8.0-3
-    created: "2026-04-17T10:03:34.614232762Z"
+    created: "2026-06-10T10:38:24.797250236Z"
     description: Harbor scanner adapter for QScanner
     digest: cf4c33431fe7e65278d01632079cc678c76a8dd564175c8590a7bab69127ecaa
     keywords:
@@ -383,7 +397,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: 4.7.0-1
-    created: "2026-04-17T10:03:34.613544242Z"
+    created: "2026-06-10T10:38:24.796393295Z"
     description: Harbor scanner adapter for QScanner
     digest: 8e400f1093df051f2b7c4a107ab667fc9db2362f5462f8ef9d06877abfc2d8d5
     keywords:
@@ -397,7 +411,7 @@ entries:
     version: 1.3.0
   - apiVersion: v1
     appVersion: 4.6.0-4
-    created: "2026-04-17T10:03:34.612844897Z"
+    created: "2026-06-10T10:38:24.79557906Z"
     description: Harbor scanner adapter for QScanner
     digest: 4a6a61c5548cc6358aa5dc0dc0d6bcff524be3977ce8d8c6a78ed10878f16034
     keywords:
@@ -411,7 +425,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: 4.5.0-2
-    created: "2026-04-17T10:03:34.612085627Z"
+    created: "2026-06-10T10:38:24.793879928Z"
     description: Harbor scanner adapter for QScanner
     digest: 0100efaba308e61f063be96dad649b565d558076e1425a52fccd26860b3366ec
     keywords:
@@ -425,7 +439,7 @@ entries:
     version: 1.1.0
   - apiVersion: v1
     appVersion: 4.4.0-3
-    created: "2026-04-17T10:03:34.611369276Z"
+    created: "2026-06-10T10:38:24.793155335Z"
     description: Harbor scanner adapter for QScanner
     digest: 7ea564c546fb717c0d4a6a75368f15429474708a57dedf7b52b91ac6d1bfc563
     keywords:
@@ -439,7 +453,7 @@ entries:
     version: 1.0.0
   qualys-tc:
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.730153141Z"
+    created: "2026-06-10T10:38:24.954114521Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -472,7 +486,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.8.0.tgz
     version: 2.8.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.724164539Z"
+    created: "2026-06-10T10:38:24.948710018Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -505,7 +519,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.7.1.tgz
     version: 2.7.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.719505605Z"
+    created: "2026-06-10T10:38:24.940960134Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -538,7 +552,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.7.0.tgz
     version: 2.7.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.713717788Z"
+    created: "2026-06-10T10:38:24.933065726Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -571,7 +585,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.6.1.tgz
     version: 2.6.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.707933848Z"
+    created: "2026-06-10T10:38:24.925377006Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -604,7 +618,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.6.0.tgz
     version: 2.6.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.703732866Z"
+    created: "2026-06-10T10:38:24.920019483Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -637,7 +651,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.5.1.tgz
     version: 2.5.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.699558847Z"
+    created: "2026-06-10T10:38:24.914094074Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -670,7 +684,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.5.0.tgz
     version: 2.5.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.693491922Z"
+    created: "2026-06-10T10:38:24.908957739Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -700,7 +714,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.4.1.tgz
     version: 2.4.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.689218804Z"
+    created: "2026-06-10T10:38:24.899975443Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -730,7 +744,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.4.0.tgz
     version: 2.4.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.683120914Z"
+    created: "2026-06-10T10:38:24.892249957Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -760,7 +774,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.3.2.tgz
     version: 2.3.2
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.679110822Z"
+    created: "2026-06-10T10:38:24.884733323Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -790,7 +804,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.3.1.tgz
     version: 2.3.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.673775825Z"
+    created: "2026-06-10T10:38:24.877985117Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -820,7 +834,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.3.0.tgz
     version: 2.3.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.669769014Z"
+    created: "2026-06-10T10:38:24.873097091Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -850,7 +864,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.2.1.tgz
     version: 2.2.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.665767069Z"
+    created: "2026-06-10T10:38:24.867621077Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -880,7 +894,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.2.0.tgz
     version: 2.2.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.660898554Z"
+    created: "2026-06-10T10:38:24.863063116Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -910,7 +924,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.1.1.tgz
     version: 2.1.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.656923528Z"
+    created: "2026-06-10T10:38:24.857614218Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -940,7 +954,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.1.0.tgz
     version: 2.1.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.652342031Z"
+    created: "2026-06-10T10:38:24.852646146Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -970,7 +984,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.0.4.tgz
     version: 2.0.4
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.648520813Z"
+    created: "2026-06-10T10:38:24.847893887Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1000,7 +1014,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.0.3.tgz
     version: 2.0.3
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.644668746Z"
+    created: "2026-06-10T10:38:24.841520661Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1030,7 +1044,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.0.2.tgz
     version: 2.0.2
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.639936516Z"
+    created: "2026-06-10T10:38:24.835734977Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1060,7 +1074,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.0.1.tgz
     version: 2.0.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.636076722Z"
+    created: "2026-06-10T10:38:24.828453575Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1090,7 +1104,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-2.0.0.tgz
     version: 2.0.0
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.632319656Z"
+    created: "2026-06-10T10:38:24.82043861Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1115,7 +1129,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-1.0.4.tgz
     version: 1.0.4
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.627160556Z"
+    created: "2026-06-10T10:38:24.814771516Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1140,7 +1154,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-1.0.3.tgz
     version: 1.0.3
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.624195547Z"
+    created: "2026-06-10T10:38:24.808766937Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1165,7 +1179,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.62121037Z"
+    created: "2026-06-10T10:38:24.805119855Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1190,7 +1204,7 @@ entries:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
-    created: "2026-04-17T10:03:34.618284892Z"
+    created: "2026-06-10T10:38:24.801698145Z"
     dependencies:
     - alias: clusterSensor
       condition: clusterSensor.enabled
@@ -1214,4 +1228,4 @@ entries:
     urls:
     - https://qualys.github.io/Qualys-Helm-Charts/qualys-tc-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-17T10:03:34.576173267Z"
+generated: "2026-06-10T10:38:24.750475571Z"
